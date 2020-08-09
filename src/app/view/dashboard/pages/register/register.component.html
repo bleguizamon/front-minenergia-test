@@ -1,0 +1,40 @@
+<div class="container">
+    <form [formGroup]="contact" id="form-contact">
+        Nombre:
+        <div class="form-group">
+         
+            <input type="text" placeholder="Nombre" formControlName="firstName"/>
+        </div>
+        Apellido:
+        <div class="form-group">
+            
+            <input type="text" placeholder="Apellido" formControlName="lastName" />
+        </div>
+        Dirección:
+        <div class="form-group">
+           
+            <input type="text" placeholder="Dirección" formControlName="address" />
+        </div>
+        <div class="form-group">
+
+            Teléfonos:
+            <div class="form-group" formArrayName="phones">
+                <div class="form-group"  *ngFor="let _ of  getPhones.controls; index as i">
+                  <input placeholder="Teléfono" [formControlName]="i" />
+                </div>
+            </div>
+
+            <div class="form-group"><input type="button" value="Agregar Teléfono" (click)="addPhone()"/></div>
+            
+            <input type="file" id="uploadPhoto" (change)="uploadPhoto($event)">
+
+            <div class="potho" *ngIf="uploadPotho">
+                <img id="Photo" [src]="image" alt="" class="viewPhoto" style="height: 100px; width:100px">
+            </div>           
+        </div>
+  
+
+        <button (click)="createUser()" type="submit" class="btn btn-primary" [disabled]="contact.get('firstName').errors?.required">Guardar</button>
+        
+    </form>
+</div>

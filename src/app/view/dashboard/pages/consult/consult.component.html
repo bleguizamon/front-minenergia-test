@@ -1,0 +1,56 @@
+<div class="container">
+  <form [formGroup]="contact" id="form-user">
+    <div class="form-group">
+      <input type="text" placeholder="Nombre" formControlName="firstName">
+    </div>
+    <button (click)="consult(contact.get('firstName').value )" type="submit" class="btn btn-primary"
+      [disabled]="contact.get('firstName').errors?.required">Consultar</button>
+
+  </form>
+
+
+  <div *ngFor="let item of data">
+    <br>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" [src]="item.photo" alt="imagen perfil" style="height: 200px; width:287px">
+
+
+      <div class="card-body">
+        <h5 class="card-title">Datos: </h5>
+        <div><label for="name">Nombre:</label> {{item.firstName +" "+ item.lastName}}</div>
+        <div><label for="phone">Telefonos:</label> {{item.phones}}</div>
+        <div><label for="addres">Dirección:</label> {{item.address}}</div>
+        <button type="submit" [routerLink]="['/dashboard/',item.id,'editar']" queryParamsHandling="merge"
+          class="btn btn-primary btn-sm">
+
+
+          <span class="d-none d-md-inline">Editar</span>
+        </button>
+      </div>
+    </div>
+    <br>
+  </div>
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="idContact">Id</label>
+          <div class="input-group">
+            <input id="idContact" class="form-control">
+
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+</div>

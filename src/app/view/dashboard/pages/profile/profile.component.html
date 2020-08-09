@@ -1,0 +1,15 @@
+<div class="container">
+    <div><h2>Perfil</h2></div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" [src]="data.photo" alt="Card image">
+
+     
+        <div class="card-body">
+            <h5 class="card-title">Datos: </h5>
+            <div><label for="name">Nombre:</label> {{data.firstName +" "+ data.lastName}}</div>
+            <div><label for="phone">Telefono:</label> {{data.phone}}</div>
+            <div><label for="addres">Dirección:</label> {{data.address}}</div>
+        </div>
+    </div>
+
+</div>

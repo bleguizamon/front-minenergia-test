@@ -1,0 +1,25 @@
+.form-group {
+    .label {
+        background: gray;
+        color: white;
+        display: flex;
+        justify-content: center;
+        padding: 5px 10px 5px 10px;
+        border-radius: 10px;
+        width: 184px;
+        cursor: pointer;
+    }
+    .input {
+        display: none;
+    }
+}
+
+.viewPhoto {
+    border-radius: 50%;
+    width: 14em;
+    height: 14em;
+}
+
+.potho {
+    margin-top: 2%;
+}

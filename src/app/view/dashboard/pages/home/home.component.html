@@ -1,0 +1,21 @@
+<div class="container space">
+    <div><h2>Contactos</h2></div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Direccion</th>              
+                <th scope="col">Telefonos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data">
+                <td>{{item.firstName}}</td>
+                <td>{{item.lastName}}</td>
+                <td>{{item.address}}</td>
+                <td *ngFor="let phone of item.phones">{{phone}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
